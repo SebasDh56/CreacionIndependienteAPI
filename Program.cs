@@ -1,6 +1,14 @@
+using AQApi2.Data;
+using AQApi2.Data.Models;
+using AQApi2.Controllers;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddSqlServer<AmableQuishpeDbContext>(builder.Configuration.GetConnectionString("BurgerConnection"));
+
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -21,5 +29,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapBurgerEndpoints();
 
 app.Run();
