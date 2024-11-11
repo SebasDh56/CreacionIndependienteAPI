@@ -1,0 +1,6 @@
+@AQApi2_HostAddress = http://localhost:5070
+
+GET {{AQApi2_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
